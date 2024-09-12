@@ -15,7 +15,8 @@ var calculatedAge = currentYear - birthYear;
 print(calculatedAge);
 
 // Step 2
-var hobby = "Table tennis";
+var tennisEmoji = "\u{1F3D3}"
+var hobby = "Table tennis \(tennisEmoji)";
 var numberOfHoobbies = 2;
 var favoriteNumber = 4;
 var isHobbyCreative = false;
