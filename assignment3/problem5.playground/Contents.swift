@@ -1,8 +1,12 @@
 func startFrequencyCounter() {
     print("Enter sentence:")
-    guard let inputSentence = readLine() else {
+    guard var inputSentence = readLine() else {
         print("Incorrect input")
         return
+    }
+    
+    inputSentence = inputSentence.lowercased().filter { char in
+        char.isLetter || char.isWhitespace
     }
     
     let wordList = inputSentence.split(separator: " ")
