@@ -54,20 +54,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startSoftBoiledEggTimer(_ sender: UIButton) {
-        resetAllTimersExceptCurrent(currentTimer: self.softBoiledTimer)
-        scaleButton(button: sender)
+        executeTimerPreparation(button: sender)
         startBoiledEggTimer(boiledTimeRemaining: self.softBoiledTimeRemaining, boiledEggTimerLabel: self.softBoiledEggTimerLabel, timer: &self.softBoiledTimer, progressBar: self.softBoiledEggProgressBar)
     }
     
     @IBAction func startMediumBoiledEggTimer(_ sender: UIButton) {
-        resetAllTimersExceptCurrent(currentTimer: self.mediumBoiledTimer)
-        scaleButton(button: sender)
+        executeTimerPreparation(button: sender)
         startBoiledEggTimer(boiledTimeRemaining: self.mediumBoiledTimeRemaining, boiledEggTimerLabel: self.mediumBoiledEggTimerLabel, timer: &self.mediumBoiledTimer, progressBar: self.mediumBoiledEggProgressBar)
     }
     
     @IBAction func startHardBoiledEggTimer(_ sender: UIButton) {
-        resetAllTimersExceptCurrent(currentTimer: self.hardBoiledTimer)
-        scaleButton(button: sender)
+        executeTimerPreparation(button: sender)
         startBoiledEggTimer(boiledTimeRemaining: self.hardBoiledTimeRemaining, boiledEggTimerLabel: self.hardBoiledEggTimerLabel, timer: &self.hardBoiledTimer, progressBar: self.hardBoiledEggProgressBar)
     }
     
@@ -92,16 +89,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func resetAllTimersExceptCurrent(currentTimer: Timer?) {
-        if currentTimer !== self.softBoiledTimer {
-            self.softBoiledTimer?.invalidate()
-        }
-        if currentTimer !== self.mediumBoiledTimer {
-            self.mediumBoiledTimer?.invalidate()
-        }
-        if currentTimer !== self.hardBoiledTimer {
-            self.hardBoiledTimer?.invalidate()
-        }
+    func executeTimerPreparation(button: UIButton) {
+        resetAllTimers()
+        resetProgress()
+        scaleButton(button: button)
+    }
+    
+    func resetAllTimers() {
+        self.softBoiledTimer?.invalidate()
+        self.mediumBoiledTimer?.invalidate()
+        self.hardBoiledTimer?.invalidate()
         
         resetLabels()
     }
