@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func scaleButton(button: UIButton) {
         UIView.animate(withDuration: 1.0, animations: {
-            button.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            button.transform = CGAffineTransform(scaleX: 1.1, y: 1.4)
         }, completion: { _ in
             UIView.animate(withDuration: 1.0, animations: {
                 button.transform = CGAffineTransform.identity
